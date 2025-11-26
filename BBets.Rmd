@@ -29,7 +29,32 @@ source(file="BrLw.R")
 Report git commit structure:
 There are 3 questions and there should be at least 3 separate commits, at least one dealing with each of the 3 questions.
 1. What are the fair odds for a bet on matching birthdays in a 35 person class.
+
+```{r}
+n <- 35
+
+# Probability of no shared birthdays
+p_no_match <- prod((365:(365 - n + 1)) / 365)
+
+# Probability of at least one shared birthday
+p_match <- 1 - p_no_match
+
+# Fair odds (ratio of expected loss to win)
+fair_odds <- (1 - p_match) / p_match
+
+p_no_match
+p_match
+fair_odds
+
+```
+
+The odds that at least one birthday is shared is 0.8143832. The fair odds are 0.227923.
+
+
 2. For what size class is a 2:1 odds bet fair.
+
+
+
 3. How much money would Brownlow be expected to end up with if the bets went as described.
 
 ## Our strategy is to build a Function and the use it to answer the three questions. 
@@ -41,6 +66,9 @@ The function will be given a class_size by number of students, odds, and Number_
 ## the standard deviation and a 95% confidence interval for their earnings?
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
+
+
+
 
 
 # What are the fair odds? Use manipulation of odds in the function to tune Brownlows earnings to zero. 
