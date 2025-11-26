@@ -53,7 +53,22 @@ The odds that at least one birthday is shared is 0.8143832. The fair odds are 0.
 
 2. For what size class is a 2:1 odds bet fair.
 
+```{r}
+target <- 2/3
 
+p_no_match <- 1
+n <- 1
+
+repeat {
+  p_no_match <- p_no_match * (365 - (n - 1)) / 365
+  if (p_no_match <= target) break
+  n <- n + 1
+}
+
+n 
+```
+
+For a class size of 18, there is are 2:1 odds
 
 3. How much money would Brownlow be expected to end up with if the bets went as described.
 
